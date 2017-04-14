@@ -1,7 +1,7 @@
 'use strict';
 
 // installed from npm
-var trezor = require('trezor.js-node');
+var trezor = require('trezor.js-node/lib/index-node');
 var _ = require('lodash');
 
 // set to true to see messages
@@ -64,11 +64,27 @@ list.on('connect', function (device) {
               (0 | hardeningConstant) >>> 0,
               0,
               0
-          ], 'decred', true)
+          ], 'decred', false)
       })
       .then(function (result) {
           console.log('Address:', result.message.address);
-	      console.log('\nTODO: get xpub\n');
+      });
+
+    }).then(function() {
+
+        console.log('\nGenerating xpub:');
+
+      return device.waitForSessionAndRun(function (session) {
+          return session.getPublicKey([
+              44,
+              42,
+              0,
+              0,
+              0
+          ], 'Decred', false)
+      })
+      .then(function (result) {
+          console.log('xpub:', result.message.xpub);
 	      console.log('TODO: signmessage\n');
 	      console.log('TODO: signtx\n');
       });

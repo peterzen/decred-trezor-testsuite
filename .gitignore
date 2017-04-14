@@ -58,3 +58,7 @@ typings/
 
 # dotenv environment variables file
 .env
+
+.virtualenv
+virtualenv
+python-trezor

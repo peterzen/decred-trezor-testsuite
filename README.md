@@ -1,16 +1,60 @@
 # decred-trezor-testsuite
-Test suite for Decred integrations with trezor
 
-### To run
+Test suite for Decred integrations with the TREZOR wallet
 
-Install the modified Trezor firmware from the source: 
-https://github.com/peterzen/trezor-mcu/tree/decred-changes
+## Install python-trezor
 
-Or grab the [compiled binary](https://github.com/peterzen/decred-trezor-testsuite/blob/master/firmware-trezor-decred-1.4.2.bin)
+#### Install dependencies
+```
+  sudo apt-get install -y python-dev cython libusb-1.0-0-dev libudev-dev git virtualenv
+```
 
-**Warning** - DO NOT use this on a device with funds on it; this is prototype code.  Use it at your on risk.
+#### Create virtualenv to keep things contained
 
-### Run test suite
+```
+  virtualenv .virtualenv
+  . .virtualenv/bin/activate
+  pip install setuptools
+```
+
+#### Install python-trezor
+
+```
+  git clone -b decred-integration https://github.com/peterzen/python-trezor
+  pip install ./python-trezor  
+```
+
+## Flash Trezor firmware
+
+**WARNING:** This step involves flashing prototype code onto your TREZOR – DO NOT run flash it onto a production device.
+
+Get the modified Trezor firmware from [source](https://github.com/peterzen/trezor-mcu/tree/decred-changes) or grab the [compiled binary](https://github.com/peterzen/decred-trezor-testsuite/blob/master/firmware-trezor-decred-1.4.2.bin)
+
+```
+  wget https://github.com/peterzen/decred-trezor-testsuite/blob/master/firmware-trezor-decred-1.4.2.bin
+```
+Enable bootloader mode on the TREZOR: unplug the device, and plug it back in while holding both buttons pressed. 
+
+```  
+  trezorctl firmware_update -f firmware-trezor-decred-1.4.2.bin
+```
+
+Confirm the prompts on the device.  Once the installation is complete, unplug and re-plug the device and press the button twice to confirm that it's OK to run the unsigned firmware binary.
+
+Next, initialize the device – this will involve exporting the 24 word mnemonic so you'll need to press the button 2 * 24 times. 
+
+```
+  trezorctl reset_device
+```
+Once this is completed, your TREZOR runs the Decred enabled firmware.
+
+#### Run python-trezor tests
+
+```
+  python test.py
+```
+
+#### Tests - trezor.js-node
 
 
 ```
