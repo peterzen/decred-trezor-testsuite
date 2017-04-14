@@ -12,9 +12,7 @@ Test suite for Decred integrations with the TREZOR wallet
 #### Create virtualenv to keep things contained
 
 ```
-  virtualenv .virtualenv
-  . .virtualenv/bin/activate
-  pip install setuptools
+  virtualenv .virtualenv && source .virtualenv/bin/activate
 ```
 
 #### Install python-trezor
@@ -50,11 +48,16 @@ Once this is completed, your TREZOR runs the Decred enabled firmware.
 
 #### Run python-trezor tests
 
-```
-  python test.py
-```
+1. Get list of supported coins: ```trezorctl list_coins```
 
-#### Tests - trezor.js-node
+2. Generate address: ```trezorctl get_address -c Decred ```
+
+3. Generate xpub key: ```trezorctl get_public_node -c Decred -n 1 ``` 
+
+4. Sign message: ```trezorctl sign_message -c Decred -n 1 message```
+
+
+#### Tests - trezor.js-node (WIP, not functional yet)
 
 
 ```
