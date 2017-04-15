@@ -1,6 +1,6 @@
-# decred-trezor-testsuite
+# decred-trezor-testsuite (WIP)
 
-Test suite for Decred integrations with the TREZOR wallet
+Work in progress test suite for Decred integrations with the TREZOR wallet.  
 
 ## Install python-trezor
 
@@ -24,7 +24,7 @@ Test suite for Decred integrations with the TREZOR wallet
 
 ## Flash Trezor firmware
 
-**WARNING:** This step involves flashing prototype code onto your TREZOR – DO NOT run flash it onto a production device.
+**WARNING:** This step involves flashing unofficial and untested code onto your TREZOR – DO NOT run it on a production device with real funds on it.
 
 Get the modified Trezor firmware from [source](https://github.com/peterzen/trezor-mcu/tree/decred-changes) or grab the [compiled binary](https://github.com/peterzen/decred-trezor-testsuite/blob/master/firmware-trezor-decred-1.4.2.bin)
 
