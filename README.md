@@ -26,7 +26,7 @@ Work in progress test suite for Decred integrations with the TREZOR wallet.
 
 **WARNING:** This step involves flashing unofficial and untested code onto your TREZOR – DO NOT run it on a production device with real funds on it.
 
-Get the modified Trezor firmware from [source](https://github.com/peterzen/trezor-mcu/tree/decred-changes) or grab the [compiled binary](https://github.com/peterzen/decred-trezor-testsuite/blob/master/firmware-trezor-decred-1.4.2.bin)
+Get the modified Trezor firmware from [source](https://github.com/peterzen/trezor-mcu/tree/decred-integration) or grab the [compiled binary](https://github.com/peterzen/decred-trezor-testsuite/blob/master/firmware-trezor-decred-1.4.2.bin)
 
 ```
   wget https://github.com/peterzen/decred-trezor-testsuite/blob/master/firmware-trezor-decred-1.4.2.bin
