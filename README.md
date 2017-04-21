@@ -59,6 +59,18 @@ Once this is completed, your TREZOR runs the Decred enabled firmware.
 
 #### Tests - trezor.js-node (WIP, not functional yet)
 
+There are pending PRs, once merged `trezord` will accept custom coin version and `trezor.js` will support DCR
+
+https://github.com/trezor/trezor-mcu/pull/161
+https://github.com/trezor/trezor-mcu/pull/160
+
+https://github.com/trezor/trezor-common/pull/26
+https://github.com/trezor/trezor-common/pull/27
+
+https://github.com/trezor/python-trezor/pull/108
+https://github.com/trezor/python-trezor/pull/109
+
+https://github.com/trezor/trezor-crypto/pull/90
 
 ```
 git clone https://github.com/peterzen/decred-trezor-testsuite && cd decred-trezor-testsuite
