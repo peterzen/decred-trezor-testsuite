@@ -65,14 +65,17 @@ https://github.com/trezor/trezor-mcu/pull/161
 https://github.com/trezor/trezor-mcu/pull/160
 
 https://github.com/trezor/trezor-common/pull/26
+
 https://github.com/trezor/trezor-common/pull/27
 
 https://github.com/trezor/python-trezor/pull/108
+
 https://github.com/trezor/python-trezor/pull/109
 
 https://github.com/trezor/trezor-crypto/pull/90
 
 https://github.com/trezor/python-trezor/pull/108
+
 https://github.com/trezor/python-trezor/pull/109
 
 ```
