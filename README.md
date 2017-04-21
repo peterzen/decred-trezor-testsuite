@@ -17,9 +17,10 @@ Work in progress test suite for Decred integrations with the TREZOR wallet.
 
 #### Install python-trezor
 
+Support has been added to `master` branch:
+
 ```
-  git clone -b decred-integration https://github.com/peterzen/python-trezor
-  pip install ./python-trezor  
+  pip install trezor  
 ```
 
 ## Flash Trezor firmware
