@@ -72,6 +72,9 @@ https://github.com/trezor/python-trezor/pull/109
 
 https://github.com/trezor/trezor-crypto/pull/90
 
+https://github.com/trezor/python-trezor/pull/108
+https://github.com/trezor/python-trezor/pull/109
+
 ```
 git clone https://github.com/peterzen/decred-trezor-testsuite && cd decred-trezor-testsuite
 npm install
