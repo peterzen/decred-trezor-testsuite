@@ -62,6 +62,7 @@ Once this is completed, your TREZOR runs the Decred enabled firmware.
 There are pending PRs, once merged `trezord` will accept custom coin version and `trezor.js` will support DCR
 
 https://github.com/trezor/trezor-mcu/pull/161
+
 https://github.com/trezor/trezor-mcu/pull/160
 
 https://github.com/trezor/trezor-common/pull/26
