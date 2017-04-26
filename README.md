@@ -5,22 +5,22 @@ Work in progress test suite for Decred integrations with the TREZOR wallet.
 ## Install python-trezor
 
 #### Install dependencies
-```
-  sudo apt-get install -y python-dev cython libusb-1.0-0-dev libudev-dev git virtualenv
+```bash
+sudo apt-get install -y python-dev cython libusb-1.0-0-dev libudev-dev git virtualenv
 ```
 
 #### Create virtualenv to keep things contained
 
-```
-  virtualenv .virtualenv && source .virtualenv/bin/activate
+```bash
+virtualenv .virtualenv && source .virtualenv/bin/activate
 ```
 
 #### Install python-trezor
 
 Support has been added to `master` branch:
 
-```
-  pip install trezor  
+```bash
+pip install https://github.com/trezor/python-trezor/archive/master.zip
 ```
 
 ## Flash Trezor firmware
@@ -29,22 +29,24 @@ Support has been added to `master` branch:
 
 Get the modified Trezor firmware from [source](https://github.com/peterzen/trezor-mcu/tree/decred-integration) or grab the [compiled binary](https://github.com/peterzen/decred-trezor-testsuite/blob/master/firmware-trezor-decred-1.4.2.bin)
 
-```
-  wget https://github.com/peterzen/decred-trezor-testsuite/blob/master/firmware-trezor-decred-1.4.2.bin
+```bash
+wget https://github.com/peterzen/decred-trezor-testsuite/blob/master/firmware-trezor-decred-1.4.2.bin
 ```
 Enable bootloader mode on the TREZOR: unplug the device, and plug it back in while holding both buttons pressed. 
 
-```  
-  trezorctl firmware_update -f firmware-trezor-decred-1.4.2.bin
-```
+````bash
+trezorctl firmware_update -f firmware-trezor-decred-1.4.2.bin
+````
 
 Confirm the prompts on the device.  Once the installation is complete, unplug and re-plug the device and press the button twice to confirm that it's OK to run the unsigned firmware binary.
 
-Next, initialize the device – this will involve exporting the 24 word mnemonic so you'll need to press the button 2 * 24 times. 
+```bash
+trezorctl load_device -m "24 word mnemonic string"  # initialize device with a pre-existing seed 
+
+trezorctl reset_device     # initialize with new key
 
 ```
-  trezorctl reset_device
-```
+
 Once this is completed, your TREZOR runs the Decred enabled firmware.
 
 #### Run python-trezor tests
