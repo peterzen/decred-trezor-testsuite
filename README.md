@@ -40,10 +40,13 @@ trezorctl firmware_update -f firmware-trezor-decred-1.4.2.bin
 
 Confirm the prompts on the device.  Once the installation is complete, unplug and re-plug the device and press the button twice to confirm that it's OK to run the unsigned firmware binary.
 
+Restore device from a pre-existing seed
 ```bash
-trezorctl load_device -m "24 word mnemonic string"  # initialize device with a pre-existing seed 
-
-trezorctl reset_device     # initialize with new key
+trezorctl load_device -m "24 word mnemonic string"  # 
+````
+OR initialize with a new key:
+```bash
+trezorctl reset_device    
 
 ```
 
@@ -71,10 +74,6 @@ https://github.com/trezor/trezor-mcu/pull/160
 https://github.com/trezor/trezor-common/pull/26
 
 https://github.com/trezor/trezor-common/pull/27
-
-https://github.com/trezor/python-trezor/pull/108
-
-https://github.com/trezor/python-trezor/pull/109
 
 https://github.com/trezor/trezor-crypto/pull/90
 
