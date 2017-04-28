@@ -1,6 +1,6 @@
 # decred-trezor-testsuite (WIP)
 
-Work in progress test suite for Decred integrations with the TREZOR wallet.  
+Work in progress testbed for Decred integration with the TREZOR wallet.  
 
 ## Install python-trezor
 
