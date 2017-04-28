@@ -62,3 +62,4 @@ typings/
 .virtualenv
 virtualenv
 python-trezor
+/.vagrant/
