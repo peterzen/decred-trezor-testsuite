@@ -9,7 +9,7 @@ Work in progress test suite for Decred integrations with the TREZOR wallet.
 sudo apt-get install -y python-dev cython libusb-1.0-0-dev libudev-dev git virtualenv
 ```
 
-#### Create virtualenv to keep things contained
+#### Create Python virtualenv to keep things contained
 
 ```bash
 virtualenv .virtualenv && source .virtualenv/bin/activate
