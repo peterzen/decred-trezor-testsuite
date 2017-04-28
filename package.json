@@ -5,12 +5,24 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "babel-node index.js --presets env"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.4",
     "trezor.js-node": "^5.4.3"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-es2016": "^6.24.1",
+    "babel-preset-import-export": "^1.0.2",
+    "babel-preset-node7": "^1.5.0",
+    "eslint": "^3.19.0",
+    "eslint-plugin-standard": "^3.0.1"
   }
 }
