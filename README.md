@@ -115,4 +115,5 @@ npm start
 
 
 ### Test suite
-  - [extendedkey_test.go](https://github.com/decred/dcrutil/blob/master/hdkeychain/extendedkey_test.go)
+  - Extract test cases from [extendedkey_test.go](https://github.com/decred/dcrutil/blob/master/hdkeychain/extendedkey_test.go) and write a script using `python-trezor` for verifying the derivation functions in the firmware
+  - Add test cases for TX verification
