@@ -1,15 +1,19 @@
 'use strict';
 
 // installed from npm
-var trezor = require('trezor.js-node/lib/index-node');
-var _ = require('lodash');
+const trezor = require('./trezor.js/src/index-node');
+const _ = require('lodash');
+const fs = require('fs');
 
 // set to true to see messages
-var debug = false;
+const debug = false;
 
-// DeviceList encapsulates transports, sessions, device enumeration and other
-// low-level things, and provides easy-to-use event interface.
-var list = new trezor.DeviceList({debug: debug});
+const config = fs.readFileSync('./config_signed.bin', 'utf8');
+
+const list = new trezor.DeviceList({
+    debug: debug,
+    config: config
+});
 
 list.on('connect', function (device) {
     if (debug) {
@@ -35,7 +39,7 @@ list.on('connect', function (device) {
         throw new Error('Device is in bootloader mode, re-connected it');
     }
 
-    var hardeningConstant = 0x80000000;
+    const hardeningConstant = 0x80000000;
 
     // low level API
     device.waitForSessionAndRun(function (session) {
@@ -43,7 +47,7 @@ list.on('connect', function (device) {
         console.log('Getting features from Trezor (GetFeatures):')
 
 	    session.getFeatures().then(function (result) {
-		    var coins = result.message.coins;
+		    const coins = result.message.coins;
 		    _.forEach(coins, function(coin, index){
 		        console.log('coin: ' + coin.coin_name + ' (' + coin.coin_shortcut + ')');
             });
@@ -52,25 +56,25 @@ list.on('connect', function (device) {
 
     }).then(function() {
 
-        console.log('\nGenerating address:');
-
-      // high level API
-
-      // Ask the device to show first address of first account on display and return it
-      return device.waitForSessionAndRun(function (session) {
-          return session.getAddress([
-              (44 | hardeningConstant) >>> 0,
-              (0 | hardeningConstant) >>> 0,
-              (0 | hardeningConstant) >>> 0,
-              0,
-              0
-          ], 'decred', false)
-      })
-      .then(function (result) {
-          console.log('Address:', result.message.address);
-      });
-
-    }).then(function() {
+    //     console.log('\nGenerating address:');
+    //
+    //   // high level API
+    //
+    //   // Ask the device to show first address of first account on display and return it
+    //   return device.waitForSessionAndRun(function (session) {
+    //       return session.getAddress([
+    //           (44 | hardeningConstant) >>> 0,
+    //           (0 | hardeningConstant) >>> 0,
+    //           (0 | hardeningConstant) >>> 0,
+    //           0,
+    //           0
+    //       ], 'decred', false)
+    //   })
+    //   .then(function (result) {
+    //       console.log('Address:', result.message.address);
+    //   });
+    //
+    // }).then(function() {
 
         console.log('\nGenerating xpub:');
 
@@ -84,9 +88,9 @@ list.on('connect', function (device) {
           ], 'Decred', false)
       })
       .then(function (result) {
-          console.log('xpub:', result.message.xpub);
-	      console.log('TODO: signmessage\n');
-	      console.log('TODO: signtx\n');
+          console.log('xpub:', result);
+	      // console.log('TODO: signmessage\n');
+	      // console.log('TODO: signtx\n');
       });
 
     })
@@ -157,7 +161,7 @@ function passphraseCallback(callback) {
 
     process.stdin.resume();
     process.stdin.on('data', function (buffer) {
-        var text = buffer.toString().replace(/\n$/, "");
+        const text = buffer.toString().replace(/\n$/, "");
         process.stdin.pause();
         callback(null, text);
     });
@@ -180,7 +184,7 @@ function pinCallback(type, callback) {
 
     process.stdin.resume();
     process.stdin.on('data', function (buffer) {
-        var text = buffer.toString().replace(/\n$/, "");
+        const text = buffer.toString().replace(/\n$/, "");
         process.stdin.pause();
         callback(null, text);
     });
