@@ -69,7 +69,6 @@ TODO/WIP:
 
 4. Sign message: `trezorctl sign_message -c Decred -n 1 message`
 
-Pubkey derivation isn't correct yet – needs to 
 
 #### Tests - trezor.js-node (WIP, not functional yet)
 
