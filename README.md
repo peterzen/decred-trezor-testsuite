@@ -72,7 +72,7 @@ TODO/WIP:
 
 #### Tests - trezor.js-node (WIP, not functional yet)
 
-There are pending PRs, once merged `trezord` will accept custom coin version and `trezor.js` will support DCR.
+There are pending PRs, once merged `trezord` and `trezor.js` will accept custom coin versions.
 
 https://github.com/trezor/trezor-mcu/pull/161
 
@@ -100,8 +100,8 @@ npm start
 ### trezor-mcu (firmware)
 
   - `fsm_msgGetPublicKey` – needs testing
-  - `fsm_msgDecredSignTx` – port `github.com/dcrd/dcrec/secp256k1/signature.go` to C
-  - CKD functions - port [extendedkey.go](https://github.com/decred/dcrutil/blob/master/hdkeychain/extendedkey.go) code 
+  - `fsm_msgDecredSignTx` – port `github.com/dcrd/dcrec/secp256k1/signature.go` to the firmware
+  - CKD functions - port `github.com/decred/dcrutil/blob/master/hdkeychain/extendedkey.go` code 
   - Wallet backup/recovery – TREZOR's BIP39 seed vs. Decred PGP word list
 
 
