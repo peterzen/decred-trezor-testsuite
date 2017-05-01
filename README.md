@@ -63,7 +63,7 @@ Once this is completed, your TREZOR runs the Decred enabled firmware.
 
 2. Generate address: `trezorctl get_address -c Decred `
 
-TODO:
+TODO/WIP:
 
 3. Generate xpub key: `trezorctl get_public_node -c Decred -n 1 `
 
@@ -100,8 +100,8 @@ npm start
 
 ### trezor-mcu (firmware)
 
-  - `fsm_msgGetPublicKey`
-  - `fsm_msgDecredSignTx`
+  - `fsm_msgGetPublicKey` – needs testing
+  - `fsm_msgDecredSignTx` – port `github.com/dcrd/dcrec/secp256k1/signature.go` to C
   - CKD functions - port [extendedkey.go](https://github.com/decred/dcrutil/blob/master/hdkeychain/extendedkey.go) code 
   - Wallet backup/recovery – TREZOR's BIP39 seed vs. Decred PGP word list
 
