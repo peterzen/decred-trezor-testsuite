@@ -63,6 +63,8 @@ Once this is completed, your TREZOR runs the Decred enabled firmware.
 
 2. Generate address: `trezorctl get_address -c Decred `
 
+TODO:
+
 3. Generate xpub key: `trezorctl get_public_node -c Decred -n 1 `
 
 4. Sign message: `trezorctl sign_message -c Decred -n 1 message`
