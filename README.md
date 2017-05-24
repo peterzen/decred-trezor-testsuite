@@ -100,7 +100,7 @@ npm start
 ### trezor-mcu (firmware)
 
   - `fsm_msgGetPublicKey` – needs testing
-  - `fsm_msgDecredSignTx` – port `github.com/dcrd/dcrec/secp256k1/signature.go` to the firmware
+  - `fsm_msgDecredSignTx` – port [signature.go](https://github.com/decred/dcrd/blob/master/dcrec/secp256k1/signature.go) to the firmware
   - CKD functions - port `github.com/decred/dcrutil/blob/master/hdkeychain/extendedkey.go` code 
   - Wallet backup/recovery – TREZOR's BIP39 seed vs. Decred PGP word list
 
